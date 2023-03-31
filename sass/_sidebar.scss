@@ -1,0 +1,91 @@
+@use './config' as c;
+@use './common';
+
+/*===============================================
+sidebar
+===============================================*/
+/* nav-icon */
+.sidebar {
+  display: none;
+  position: fixed;
+  top: 105px;
+  right: 65px;
+  padding-right: calc((100vw - 1366px) / 2);
+  z-index: 999;
+
+  &__list {
+    position: relative;
+  
+    & + & {
+      margin-top: 60px;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 88%;
+      border-top: 2px solid c.$color-sub;
+      border-right: 1px solid c.$color-sub;
+      position: absolute;
+      bottom: -5px;
+      left: 52px;
+      transform: skewY(-65deg);
+    }
+  }
+  &__icon {
+    width: 40px;
+    height: 40px;
+  
+    & + & {
+      margin-top: 34px;
+    }
+  }
+  
+  &__link {
+    color: c.$color-sub;
+  
+    [class^="ri-"] {
+      display: block;
+      font-size: 40px;
+      margin-top: -10px;
+    }
+  }
+
+  @include c.mq('pc') {
+    display: block;
+    top: 121px;
+    right: 0;
+
+    &-inner {
+      padding: 2em 3em 2em 1em;
+      border-radius: 15px 0 0 15px;
+      background: rgba(c.$color-sub ,.6);
+    }
+
+    &__list {
+      &::after {
+        border-top: 2px solid c.$color-main;
+        border-right: 1px solid c.$color-main;
+        transition: .5s ease-out;
+      }
+  
+      &::after {
+        height: 10%;
+      }
+
+      &:hover,
+      &:focus {
+        &::after {
+          height: 90%;
+        }
+      } 
+
+    }
+    
+    &__link {
+      color: c.$color-main;
+    }
+  }
+}
+

@@ -1,0 +1,110 @@
+@use './config' as c;
+@use './common';
+
+/*===============================================
+footer
+===============================================*/
+.footer {
+  height: 200px;
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.05);
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__logo {
+    width: 109px;
+    flex-shrink: 0;
+
+    a {
+      display: block;
+    }
+  }
+
+  &-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 19px;
+    @include c.ffe();
+
+    &__list {
+      display: flex;
+      margin-left: 16px;
+    }
+
+    &__item {
+      & + & {
+        margin-left: 30px;
+      }
+    }
+
+    &__link {
+      @include c.fz(14);
+    }
+  }
+
+  &__address {
+    @include c.fz(11);
+    line-height: 1.9;
+    letter-spacing: 0.2em;
+    text-align: center;
+    font-style: normal;
+    margin-top: 25px;
+  }
+
+  &__copyright {
+    @include c.ffe();
+    @include c.fz(10);
+    text-align: center;
+    margin-top: 22px;
+  }
+
+  @include c.mq('pc') {
+    height: 155px;
+
+    &-inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 22px;
+    }
+  
+    &__logo {
+      width: 158px;
+    }
+  
+    &-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 22px;
+  
+      &__list {
+        margin-left: 64px;
+      }
+  
+      &__item {
+        & + & {
+          margin-left: 57px;
+        }
+      }
+  
+      &__link {
+        @include c.fz(20);
+      }
+    }
+  
+    &__address {
+      @include c.fz(12);
+      line-height: 1.5;
+      text-align: right;
+      margin-top: 20px;
+    }
+  
+    &__copyright {
+      margin-top: 40px;
+    }
+  }
+}

@@ -1,0 +1,150 @@
+@use './config' as c;
+@use './common';
+
+/*===============================================
+subPage Access
+===============================================*/
+.pageTop {
+  &._access {
+    background: url(../img/mv-access.webp) no-repeat center  center /cover;
+  }
+}
+
+.access {
+  margin-top: 60px;
+  margin-bottom: 66px;
+  position: relative;
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__body {
+    margin: 0 auto;
+  }
+
+  &__address {
+    @include c.fz(14);
+    letter-spacing: .2em;
+  }
+
+  &__tel {
+    @include c.ffe();
+    margin-top: 20px;
+  }
+
+  &__hour {
+    @include c.fz(14);
+    @include c.ffe();
+    font-family: c.$font-family-en;
+    letter-spacing: .1em;
+    margin-top: 40px;
+
+    &Row {
+      display: flex;
+      align-items: center;
+
+      &:nth-child(n+2) {
+        margin-top: 24px;
+      }
+
+      dt {
+        text-transform: uppercase;
+        width: clamp(128px, 11.2vw, 153px);
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &__btn {
+    @include c.ffe();
+    @include c.fz(16);
+    margin-top: 57px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__info {
+    margin-top: 60px;
+  }
+
+  &__map {
+    aspect-ratio: 1 / 1;
+    width: min(93.143%, 374px);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__route {
+    font-size: clamp(c.fz(14), 1.6vw, c.fz(16));
+    line-height: 2;
+    letter-spacing: .2em;
+    margin-top: 27px;
+    text-align: center;
+  }
+
+  &__bgImg {
+    top: 193px;
+    right: 0px;
+    width: 52.56%;
+  }
+
+  @include c.mq('tab') {
+    margin-top: 112px;
+    margin-bottom: 112px;
+
+    &-inner {
+      flex-direction: row-reverse;
+    }
+  
+    &__body {
+      width: 50%;
+      padding-left: 20px;
+    }
+  
+    &__address {
+      @include c.fz(16);
+    }
+  
+    &__tel {
+      margin-top: 21px;
+    }
+  
+    &__hour {
+      margin-top: 46px;
+      @include c.fz(16);
+  
+      &Row {
+        &:nth-child(n+2) {
+          margin-top: 21px;
+        }
+      }
+    }
+    &__btn {
+      margin-top: 74px;
+    }
+  
+    &__info {
+      margin-top: 0;
+      width: 50%;
+    }
+  
+    &__route {
+      margin-top: 17px;
+    }
+
+    &__bgImg {
+      top: 318px;
+      right: 5.63%;
+      width: 255px;
+      opacity: .8;
+    }
+  }
+}

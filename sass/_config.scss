@@ -1,0 +1,39 @@
+
+//ブレイクポイント
+$breakpoints: (
+	"sp": "(min-width: 567px)",
+	"tab-down": "(max-width: 767px)",
+  "tab": "(min-width: 768px)",
+	"pc-down": "(max-width: 991px)",
+	"pc": "(min-width: 992px)",
+	"pc-up": "(min-width: 1200px)",
+
+) !default;
+
+// メディアクエリー
+@mixin mq($breakpoint: sp) {
+	@media screen and #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+
+// フォント
+$font-family-ja: 'noto-sans-cjk-jp', 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo, sans-serif;
+$font-family-en: 'Futura','futura-pt','Franklin Gothic Medium','Arial', sans-serif;
+
+@mixin ffe() {
+	font-family: $font-family-en;
+	font-weight: 500;
+}
+
+//font-size
+@mixin fz($font-size) {
+	font-size: ($font-size / 16) + rem;
+}
+@function fz($font-size) {
+	@return ($font-size / 16) + rem;
+}
+
+//カラー
+$color-main: #6B8663;
+$color-sub: #F5F5F5;

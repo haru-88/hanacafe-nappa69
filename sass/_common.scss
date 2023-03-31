@@ -1,0 +1,197 @@
+@use './config' as c;
+
+/*===============================================
+common
+===============================================*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  // outline: 1px solid magenta;
+}
+
+body {
+  font-family: c.$font-family-ja;
+  background: c.$color-sub;
+  color: c.$color-main;
+  line-height: 1.5;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+li, dd {
+  list-style-type: none;
+}
+
+a {
+  color: c.$color-main;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: .3s;
+
+  &:hover,
+  &:focus {
+    opacity: .7;
+  }
+  &:focus {
+    outline: 1px solid c.$color-main;
+  }
+}
+
+img {
+  border: none;
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+address {
+  font-style: normal;
+}
+
+.container {
+  max-width: 1366px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.inner {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  margin-top: 64px;
+  &:last-child {
+    margin-bottom: 72px;
+  }
+
+  @include c.mq('tab') {
+    margin-top: 190px;
+    &:last-child {
+      margin-bottom: 156px;
+    }
+  }
+}
+
+.section-heading {
+  display: none;
+}
+
+/* SP用のスタイル */
+.sp-only {
+  display: block;
+}
+.pc-only {
+  display: none;
+}
+/* PC用のスタイル */
+@include c.mq('tab') {
+  .sp-only {
+    display: none;
+  }
+  .pc-only {
+    display: block;
+  }
+}
+
+/* ボタン */
+.btn {
+  appearance: none;
+  display: inline-block;
+  border: 1px solid transparent;
+  font-family: inherit;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0.5em 0;
+  white-space: nowrap;
+  transition: .3s;
+}
+.btn--arrow {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 113%;
+    height: 5px;
+    border-bottom: 1px solid c.$color-main;
+    border-right: 2px solid c.$color-main;
+    position: absolute;
+    bottom: 0;
+    left: -5px;
+    transform: skew(65deg);
+    transition: .3s ease-out;
+  }
+  
+  &:hover,
+  &:focus {
+    @media (any-hover: hover) {
+      &::after {
+        width: 173%;
+      }
+    }
+  } 
+}
+
+/* subPage common */
+.pageTop {
+  margin-top: 70px;
+  height: 186px;
+  display: grid;
+  place-items: end start;
+
+  @include c.mq('pc') {
+    height: 346px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 100px auto 0;
+  }
+
+  &__heading {
+    @include c.ffe();
+    color: c.$color-sub;
+    @include c.fz(36);
+    margin-left: 40px;
+    margin-bottom: 10px;
+    font-weight: 500;
+  
+    @include c.mq('pc') {
+      @include c.fz(56);
+      margin-left: 90px;
+      margin-bottom: 34px;
+    }
+  }
+}
+/* tab,PC TEL発信無効 */
+@include c.mq('sp') {
+  a[href^="tel:"]{
+    pointer-events: none;
+  }
+}
+
+/* img absolute common*/
+[class*="__bgImg"] {
+  position: absolute;
+  opacity: .7;
+
+  &[data-aos^=fade][data-aos^=fade].aos-animate {
+    @include c.mq('tab-down') {
+      opacity: .7;
+    }
+  }
+
+  @include c.mq('tab') {
+    opacity: 1;
+  }
+}

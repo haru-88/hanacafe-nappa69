@@ -1,0 +1,322 @@
+@use './config' as c;
+@use './common';
+
+/*===============================================
+subPage Menu
+===============================================*/
+.pageTop {
+  &._menu {
+    background: url(../img/mv-menu.webp) no-repeat center  center /cover;
+  }
+}
+
+.menu {
+  &-inner {
+    margin-top: 60px;
+    margin-bottom: 53px;
+  }
+
+  &__catch {
+    text-align: center;
+    @include c.fz(14);
+    line-height: 2.2;
+    letter-spacing: 0.1em;
+  }
+
+  &__wrapper{
+    margin-top: 46px;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+  }
+
+  &__list {
+    margin-top: 13px;
+
+    @include c.mq('tab-down') {
+      ._dessert & {
+        margin-top: -24px;
+      }
+    }
+  }
+
+  &__title {
+    @include c.ffe();
+    font-size: clamp(c.fz(50), 13vw, c.fz(100));
+  }
+
+  &__item {
+    padding-left: 2.857vw;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    dt, dd {
+      margin-top: 12px;
+    }
+
+    dt {
+      @include c.fz(12);
+      width: 70%;
+    }
+
+    dd {
+      @include c.ffe();
+      @include c.fz(13);
+      text-align: right;
+      width: 30%;
+
+      &::after {
+        content: "yen";
+        @include c.fz(12);
+        padding-left: 5px;
+      }
+    }
+  }
+
+  &__subTitle {
+    @include c.ffe();
+    @include c.fz(18);
+    margin-top: 30px;
+  } 
+  
+  &__img {
+    margin-top: 40px;
+
+    ._main & {
+      text-align: left;
+    }
+    ._coffee & {
+      text-align: right;
+    }
+    ._tea & {
+      width: 80.85%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    ._dessert & {
+      margin-top: 0px;
+    }
+    ._alcohol & {
+      text-align: center;
+      margin-top: 65px;
+    }
+
+    @include c.mq('tab-down') {
+      ._salad & {
+        position: absolute;
+        top: -52px;
+        text-align: right;
+      }
+    }
+
+    img {
+      object-fit: cover;
+
+      ._salad & {
+        aspect-ratio: 160 / 115;
+        width: 45.71%;
+      }
+      ._main & {
+        aspect-ratio: 290 / 195;
+        width: 82.86%;
+      }
+      ._coffee & {
+        aspect-ratio: 252 / 159;
+        width: 72%;
+      }
+      ._tea & {
+        &:nth-child(1) {
+          aspect-ratio: 1 / 1;
+          width: 43.82%;
+          position: relative;
+        }
+        &:nth-child(2) {
+          aspect-ratio: 236 / 138;
+          width: 83.39%;
+          margin-top: -20px;
+          margin-left: 46px;
+        }
+      }
+      ._dessert & {
+        aspect-ratio: 167 / 184;
+        width: 47.71%;
+        margin-left: 43.14%;
+      }
+      ._alcohol & {
+        aspect-ratio: 302 / 221;
+        width: 90%;
+      }
+    }
+  }
+
+  &__bgImg1 {
+    top: -123px;
+    left: -39px;
+    width: 144px
+  }
+  &__bgImg2 {
+    bottom: 259px;
+    right: -10px;
+    width: 100px;
+  }
+  &__bgImg3 {
+    bottom: 187px;
+    right: 58px;
+    width: 118px;
+  }
+
+  &__note {
+    @include c.fz(14);
+    text-align: right;
+    margin-top: 40px;
+  }
+
+
+  @include c.mq('tab') {
+    &-inner {
+      margin-top: 80px;
+      margin-bottom: 70px;
+    }
+
+    &__catch {
+      @include c.fz(16);
+      line-height: 2.5;
+      letter-spacing: .2em;
+    }
+
+    &__wrapper{
+      margin-top: 170px;
+    }
+
+    &__section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &._reverse {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &__title {
+      line-height: 1.3;
+    }
+
+    &__list {
+      margin-top: 0;
+      width: 39.09%;
+
+      ._normal & {
+        margin-left: 8.28%;
+      }
+      ._reverse & {
+        margin-right: 8.28%;
+      }
+    }
+
+    &__item {
+      padding-left: 13%;
+      width: 100%;
+
+      dt, dd {
+        margin-top: 26px;
+      }
+
+      dt {
+        @include c.fz(15);
+      }
+
+      dd {
+        @include c.fz(16);
+
+        &::after {
+          @include c.fz(14);
+        }
+      }
+    }
+
+    &__subTitle {
+      @include c.fz(20);
+      margin-top: 40px;
+      margin-left: 27px;
+
+      ._alcohol & {
+        &:nth-of-type(1) {
+          margin-top: 0px;
+        }
+      }
+    } 
+    
+    &__img {
+      margin-top: 0;
+      width: 50%;
+
+      ._salad & {
+        text-align: right;
+      }
+
+      ._tea & {
+        width: 50%;
+      }
+
+      ._alcohol & {
+        margin-top: -390px;
+      }
+
+      img {
+        ._salad & {
+          width: 70.36%;
+        }
+        ._main & {
+          width: 92.36%;
+          
+        }
+        ._coffee & {
+          width: 77.45%;
+        }
+        ._tea & {
+          &:nth-child(1) {
+            width: 39.82%;
+          }
+          &:nth-child(2) {
+            width: 75.82%;
+            margin-top: -42px;
+            margin-left: 88px;
+          }
+        }
+        ._dessert & {
+          width: 44%;
+          margin-left: 28%;
+        }
+        ._alcohol & {
+          width: 70%;
+        }
+      }
+    }
+
+    &__bgImg1 {
+      top: -218px;
+      left: -36px;
+      width: 25%;
+    }
+    &__bgImg2 {
+      bottom: 422px;
+      right: 0;
+      width: 179px;
+    }
+    &__bgImg3 {
+      bottom: 25px;
+      right: 0;
+      left: 20px;
+      width: 198px;
+    }
+
+    &__note {
+      margin-top: 80px;
+    }
+  }
+}
