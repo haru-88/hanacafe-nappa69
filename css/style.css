@@ -35,9 +35,6 @@ a {
 a:hover, a:focus {
   opacity: 0.7;
 }
-a:focus {
-  outline: 1px solid #6B8663;
-}
 
 img {
   border: none;
@@ -263,23 +260,13 @@ header
 }
 
 /* ハンバーガーボタン開いた時 */
-._open .hamburger__line:nth-of-type(1) {
+.hamburger[aria-expanded=true] .hamburger__line:nth-of-type(1) {
   transform: rotate(-45deg);
   top: 23px;
 }
-._open .hamburger__line:nth-of-type(2) {
+.hamburger[aria-expanded=true] .hamburger__line:nth-of-type(2) {
   transform: rotate(45deg);
   top: 23px;
-}
-
-/* ハンバーガーメニュー展開時、背景を固定 */
-body._open {
-  scrollbar-gutter: stable;
-  overflow: auto;
-}
-
-html._open {
-  overflow: hidden;
 }
 
 /* header-nav */
@@ -777,6 +764,7 @@ news
   text-align: left;
   margin-top: 20px;
   padding-left: 20px;
+  padding-right: 20px;
 }
 .news-pagination .swiper-pagination-bullet {
   background: rgba(107, 134, 99, 0.8);

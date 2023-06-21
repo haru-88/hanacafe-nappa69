@@ -92,14 +92,14 @@
       <h1 class="header__logo">
         <a href="../"><img src="../img/logo.svg" alt="ハナカフェのロゴ"></a>
       </h1><!-- /.header__logo -->
-      <nav id="js-headerNav" class="headerNav">
+      <nav id="js-headerNav" class="headerNav" aria-hidden="true">
         <ul class="headerNav__list">
           <li class="headerNav__item"><a href="./" class="headerNav__link">Menu</a></li><!-- /.headerNav__item -->
           <li class="headerNav__item"><a href="../access" class="headerNav__link">Access &amp; info</a></li><!-- /.headerNav__item -->
           <li class="headerNav__item"><a href="https://retty.me/reserve/100000067832/" class="headerNav__link" target="_blank">Reserve</a></li><!-- /.headerNav__item -->
         </ul><!-- /.headerNav__list -->
       </nav><!-- /.headerNav -->
-      <button id="js-btnHamburger" class="hamburger" aria-label="メニューを開く">
+      <button type="button" id="js-btnHamburger" class="hamburger"  aria-controls="js-headerNav" aria-expanded="false" aria-label="メニューを開く">
         <span class="hamburger__line"></span>
         <span class="hamburger__line"></span>
       </button>
