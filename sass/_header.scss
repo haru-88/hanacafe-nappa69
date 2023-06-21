@@ -76,7 +76,7 @@ header
 }
 
 /* ハンバーガーボタン開いた時 */
-._open .hamburger__line{ 
+.hamburger[aria-expanded="true"] .hamburger__line{
   &:nth-of-type(1) {
     transform: rotate(-45deg);
     top: 23px;
@@ -87,14 +87,20 @@ header
   }
 }
 
-/* ハンバーガーメニュー展開時、背景を固定 */
-body._open {
-  scrollbar-gutter: stable;
-  overflow: auto;
-}
-html._open {
-  overflow: hidden
-}
+// /* ハンバーガーメニュー展開時、背景を固定 */
+// body.hamburger[aria-expanded="true"] {
+//   scrollbar-gutter: stable;
+//   overflow: auto;
+// }
+
+
+// body._open {
+//   scrollbar-gutter: stable;
+//   overflow: auto;
+// }
+// html._open {
+//   overflow: hidden
+// }
 
 /* header-nav */
 .headerNav__link {

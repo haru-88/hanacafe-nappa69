@@ -11,20 +11,29 @@ $( function() {
     e.preventDefault();
     let hamburgerMenu = $('#js-headerNav, #js-sidebar, #js-overlay');
     
-    $('html, body, header').toggleClass('_open');
-    $(hamburgerMenu).fadeToggle(600);
-
-    if($('header').hasClass('_open')) {
-      $('#js-btnHamburger').attr('aria-label', 'メニューを閉じる');
+    if($(this).attr('aria-expanded') === 'false') {
+      $(this).attr({
+        'aria-expanded' :'true',
+        'aria-label' :"メニューを閉じる",
+      });
+      $('js-headerNav').attr('aria-hidden', 'false');
+      $(hamburgerMenu).fadeToggle(600);
     }else {
-      $('#js-btnHamburger').attr('aria-label', 'メニューを開く');
+      $(this).attr({
+        'aria-expanded' :'false',
+        'aria-label' :"メニューを開く",
+      });
+      $('js-headerNav').attr('aria-hidden', 'true');
+      $(hamburgerMenu).fadeToggle(600);
     };
 
     $(window).resize(function() {
       if (window.matchMedia( "(min-width: 992px)" ).matches) {
-        $('body, header').removeClass('_open');
+        $('#js-btnHamburger').attr({
+          'aria-expanded' :'false',
+          'aria-label' :"メニューを開く",
+        });
         $(hamburgerMenu).attr('style', null);
-        $('#js-btnHamburger').attr('aria-label', 'メニューを開く')
       }
     });
     return false;
@@ -46,7 +55,6 @@ $( function() {
   /* blog swiper */
   const swiperNews = new Swiper('.swiper-news', {
     loop: true,
-    loopAdditionalSlides: 1,
     autoplay: {
       delay: 2000,
     },
